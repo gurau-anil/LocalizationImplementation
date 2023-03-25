@@ -38,5 +38,16 @@ namespace LocalizationImplementation.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }    }
+        }
+
+        [Route("set-culture")]
+        [HttpGet]
+        public async Task<IActionResult> ManageCulture(string lang="en")
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(lang)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
+
+            return Ok($"Culture Changed to {lang}");
+        }
+    }
 }
