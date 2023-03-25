@@ -23,10 +23,6 @@ namespace LocalizationImplementation.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         [HttpGet]
         [Route("localization-test")]
         public async Task<IActionResult> TestLocalization()
