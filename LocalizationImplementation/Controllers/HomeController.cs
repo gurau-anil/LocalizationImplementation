@@ -27,7 +27,7 @@ namespace LocalizationImplementation.Controllers
         [Route("localization-test")]
         public async Task<IActionResult> TestLocalization()
         {
-            return Ok(_localizer["test"].Value);
+            return Ok(_localizer["greeting"].Value);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
